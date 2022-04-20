@@ -11,6 +11,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DreamScreen</title>
     <link rel="stylesheet" href="css/style.css">
+    <script language="javascript">
+        function show() {
+
+            var el = document.getElementById("hideMe");
+            var text = document.getElementById("showMe");
+            if (el.style.display == "block") {
+                el.style.display = "none";
+
+            } else {
+                el.style.display = "block";
+            }
+        }
+
+    </script>
 </head>
 
 <body>

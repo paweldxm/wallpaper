@@ -4,7 +4,6 @@ body {
     display: flex;
     flex-direction: column;
     padding: 15px;
-    /*    border: 1px solid red;*/
     height: 100%;
     font-size: 20px;
     font-family: sans-serif;
@@ -19,9 +18,10 @@ body {
 }
 */
 a,
-a:any-link,
-a:hover {
+a:hover,
+a:visited {
     text-decoration: none;
+    color: currentColor;
 }
 
 header {
@@ -161,13 +161,24 @@ button {
 
 }
 
-#flex {
+.flex {
     background-color: #ffeded;
-
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-evenly;
+    margin: 10px;
+    width: 100%;
+}
+
+.flexb {
+    justify-content: space-between;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    gap: 20px;
 }
 
 #menu a {
@@ -224,4 +235,8 @@ div > label {
 
 label > button {
     justify-self: center;
+}
+
+.red {
+    color: red !important;
 }

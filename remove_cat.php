@@ -8,10 +8,11 @@
     else {
         
         $id = $_GET['id'];
-        $query = 'DELETE FROM users WHERE ID=' . $id;
-        $bcon=mysqli_connect("localhost","root","","wallpaper"); mysqli_query($bcon,$query);
+        $bcon=mysqli_connect("localhost","root","","wallpaper"); 
+        $query = 'DELETE FROM category WHERE ID=' . $id;
+        mysqli_query($bcon,$query);
         mysqli_close($bcon);
-        header('Location: ../users.php');
+        header('Location: ../category.php');
         die;
     }
 ?>

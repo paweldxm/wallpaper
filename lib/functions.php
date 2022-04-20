@@ -1,4 +1,12 @@
 <?php
+function rand_col() {
+    $col1 = rand(0,255);
+    $col2 = rand(0,255);
+    $col3 = rand(0,255);
+    $col = 'rgb('.$col1.','.$col2.','.$col3.')';
+    return $col;
+    
+}
 
 function get_connection()
 {
@@ -38,29 +46,5 @@ function get_wp()
     $stmt->execute();
     return $stmt->fetchAll();
 }
-function display_data($data) {
-    $output = "<table>";
-    foreach($data as $key => $var) {
-        //$output .= '<tr>';
-        if($key===0) {
-            $output .= '<tr>';
-            foreach($var as $col => $val) {
-                $output .= "<td>" . $col . '</td>';
-            }
-            $output .= '</tr>';
-            foreach($var as $col => $val) {
-                $output .= '<td>' . $val . '</td>';
-            }
-            $output .= '</tr>';
-        }
-        else {
-            $output .= '<tr>';
-            foreach($var as $col => $val) {
-                $output .= '<td>' . $val . '</td>';
-            }
-            $output .= '</tr>';
-        }
-    }
-    $output .= '</table>';
-    echo $output;
-}
+
+$bcon=mysqli_connect("localhost","root","","wallpaper");

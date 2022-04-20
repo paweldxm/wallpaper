@@ -2,8 +2,8 @@
 @session_start();
 ?>
 <div class="menu">
-    <div style="margin-right:10px;">
-        Zalogowany jako:
+    <div class="error" style="margin-right:10px;   justify-content: center;">
+        Jesteś zalogowany:<br>
         <?php
         echo '<b>';
 

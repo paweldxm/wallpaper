@@ -4,7 +4,7 @@
 require './layout/header.php'; 
 ?>
 
-<h4>NIE MA TAKIEGO UŻYTKOWNIKA <b>
+<h4 class="red">NIE MA TAKIEGO UŻYTKOWNIKA <b>
         <?php
         echo $_SESSION['error'] . '</b> LUB HASŁO JEST NIEPOPRAWNE';
     

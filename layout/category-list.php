@@ -7,7 +7,7 @@
     <?php
             foreach ($cat as $cate) {
         ?>
-    <div class="cat<?php echo rand(1,count($cat));?>">
+    <div style="background:<?php echo rand_col();?>;">
         <?php echo $cate['name'];
          ?>
     </div>

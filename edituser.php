@@ -8,6 +8,20 @@
     
     require './layout/header.php'; 
     require './layout/menu.php'; 
+
+    if(isset($_GET['id'])) {
+        $id = $_GET['id'];
+
+        $pdo = get_connection();
+        $query = 'select * from users WHERE ID=' . $id  ;
+
+        $result = $pdo->query($query);
+        $stmt = $result->fetch();
+        $_SESSION['editid'] = $id;
+        $_SESSION['editlogin'] = $stmt['login'];    
+    }
+
+
     if(isset($_POST['login'])){
 //        require './lib/functions.php';
 
@@ -60,25 +74,28 @@
         if($status==true)
             {
             $pdo = get_connection();
-            $add = "INSERT INTO USERS VALUES(null,'$login','$passwd_hash',CURRENT_TIMESTAMP)" ;
-            $pdo->query($add);
+            $edit = "UPDATE users SET login='$login' WHERE id= " .$_SESSION['editid'];
+            $pdo->query($edit);
             header ('Location: ./users.php');
             exit();
             }
     }
 ?>
 <aside>
-    <a id="showMe" href="javascript:show();">
-        <h3>DODAJ NOWEGO UŻYTKOWNIKA</h3>
-    </a>
-    <div id="hideMe" style="display: none">
-        <form action="users.php" method="POST" ENCTYPE="multipart/form-data">
+    <div>
+        <h3>EDYTUJ UŻYTKOWNIKA
+            <?php
+                echo ' <b><u>' . $_SESSION['editlogin'] . '</u></b>';
+            
+            ?>
+        </h3>
+        <form action="edituser.php" method="POST" ENCTYPE="multipart/form-data">
             <div>
-                <label for="login">Podaj login</label>
+                <label for="login">Zmień login</label>
                 <input type="text" name="login" />
             </div>
             <div>
-                <label for="passwd">Podaj hasło</label>
+                <label for="passwd">Zmień hasło</label>
                 <input type="password" name="passwd" />
             </div>
             <div>
@@ -88,7 +105,6 @@
             <button type="submit">Wyślij</button>
         </form>
     </div>
-
     <?php
                 if (isset($_SESSION['e_login']))
                 {
@@ -123,7 +139,7 @@ while($row = mysqli_fetch_array($result))
 {
     $login = $row['login'];
     echo "<tr><td>" . $row['id'] . "</td><td>" . $row['date'] . "</td><td>" . $row['login'] . "</td><td> ";
-    echo '<a href="edituser.php?id=' . $row['id'] . '        ">edytuj</a></td><td>' ;
+    echo '<a id="showEd" href="javascript:showE();">edytuj</a></td><td>' ;
         
     if ($_SESSION['login']!=$row['login'])
     {
@@ -131,7 +147,7 @@ while($row = mysqli_fetch_array($result))
     }
     else
     {
-        $who = 'usuń mnie';
+        $who = '<span class="red">usuń mnie</span>';
     }
 //    $text = "Jesteś pewny, że chcesz usunąć dane?";
     
@@ -144,7 +160,6 @@ while($row = mysqli_fetch_array($result))
     echo '</tr></table>';
     mysqli_close($bcon);
 }
-echo'<br>';
 echo '<br><br>';
 echo '</aside>';
 require './layout/footer.php';
