@@ -24,7 +24,7 @@
             if($row1==true)
                     {
                         $status = false;
-                        $_SESSION['e_login']='Taka kategoria już istnieje!';
+                        $_SESSION['e_cat']='Taka kategoria już istnieje!';
                     }
             }
             catch(Exception $e)
@@ -46,10 +46,10 @@
     <a id="showMe" href="javascript:show();">
         <h3>DODAJ NOWĄ KATEGORIĘ</h3>
     </a>
-    <div id="hideMe" style="display: none">
+    <div id="hideMe" style="display: none;">
         <form action="category.php" method="POST" ENCTYPE="multipart/form-data">
             <div>
-                <label for="login">Nazwa kategori</label>
+                <label>Nazwa kategori</label>
                 <input type="text" name="name" />
             </div>
             <button type="submit">Wyślij</button>
@@ -70,7 +70,7 @@
         while($row = mysqli_fetch_array($result))
         {
             echo "<tr><td>" . $row['id'] . "</td><td>" . $row['date'] . "</td><td>" . $row['name'] . "</td><td> ";
-            echo '<a href="#editcat.php?id=' . $row['id'] . '        ">edytuj</a></td><td>' ;
+            echo '<a href="./editcat.php?id=' . $row['id'] . '        ">edytuj</a></td><td>' ;
             ?>
     <a onclick="return confirm('Jesteś pewny, że chcesz usunąć dane?');" href="./remove_cat.php/?id=<?php echo $row['id'] . '">usuń</a></td></tr>';    
 

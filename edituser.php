@@ -23,8 +23,6 @@
 
 
     if(isset($_POST['login'])){
-//        require './lib/functions.php';
-
         $status = true;
         $login = $_POST['login'];
         $passwd = $_POST['passwd'];
@@ -149,9 +147,7 @@ while($row = mysqli_fetch_array($result))
     {
         $who = '<span class="red">usuń mnie</span>';
     }
-//    $text = "Jesteś pewny, że chcesz usunąć dane?";
-    
-//    echo '<a onclick="return confirm(' . $text .');" href="./remove_user.php/?id='. $row['id'] . '">' . $who . '</a></td></tr>';    
+
     ?>
 
     <a onclick="return confirm('Jesteś pewny, że chcesz usunąć dane?');" href="./remove_user.php/?id= <?php echo $row['id'] . '">' . $who . '</a></td></tr>';    

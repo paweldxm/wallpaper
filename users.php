@@ -9,8 +9,6 @@
     require './layout/header.php'; 
     require './layout/menu.php'; 
     if(isset($_POST['login'])){
-//        require './lib/functions.php';
-
         $status = true;
         $login = $_POST['login'];
         $passwd = $_POST['passwd'];
@@ -71,7 +69,7 @@
     <a id="showMe" href="javascript:show();">
         <h3>DODAJ NOWEGO UŻYTKOWNIKA</h3>
     </a>
-    <div id="hideMe" style="display: none">
+    <div id="hideMe" style="display: none;">
         <form action="users.php" method="POST" ENCTYPE="multipart/form-data">
             <div>
                 <label for="login">Podaj login</label>
@@ -111,7 +109,7 @@
 $bcon=mysqli_connect("localhost","root","","wallpaper");
 if (mysqli_connect_errno())
 {
-    echo "Nie można się połączyć z bazą";
+    echo "Brak połączenia z bazą MySQL";
 }
 else {
 echo '<table><tr><td>id</td><td>data</td><td>login</td><td></td><td></td>';
@@ -133,9 +131,6 @@ while($row = mysqli_fetch_array($result))
     {
         $who = 'usuń mnie';
     }
-//    $text = "Jesteś pewny, że chcesz usunąć dane?";
-    
-//    echo '<a onclick="return confirm(' . $text .');" href="./remove_user.php/?id='. $row['id'] . '">' . $who . '</a></td></tr>';    
     ?>
 
     <a onclick="return confirm('Jesteś pewny, że chcesz usunąć dane?');" href="./remove_user.php/?id= <?php echo $row['id'] . '">' . $who . '</a></td></tr>';    

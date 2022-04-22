@@ -1,5 +1,9 @@
 body {
-    background-color: white;
+    /*    background-color: white;*/
+    background-image: url(../images/cool-background.png);
+    background-size: cover;
+    font-family: 'Copperplate Gothic Light';
+
     color: #2c2c14;
     display: flex;
     flex-direction: column;
@@ -9,57 +13,90 @@ body {
     font-family: sans-serif;
     margin-left: 10%;
     margin-right: 10%;
+    font-weight: 400;
 
 }
 
-/*
 * {
-    border: 1px solid black;
+    font-family: 'Courier New';
+    ;
+
 }
-*/
+
 a,
 a:hover,
 a:visited {
     text-decoration: none;
     color: currentColor;
+
+}
+
+.btn {
+    border-radius: 10px;
+    background: rgba(0, 128, 0, 0.5);
+    padding: 5px;
 }
 
 header {
     display: flex;
     flex-direction: column;
+    background-color: transparent;
 }
 
-#header {
-    width: 100%;
+#logo {
+    font-size: 30px;
+    font-weight: bold;
+    background-color: rgba(240, 248, 255, 0.1);
+    border-radius: 5px;
+    justify-content: center;
+
+}
+
+#header,
+#logo {
+    /*    width: 100%;*/
     display: flex;
     justify-items: flex-start;
     justify-content: space-around;
     align-items: center;
+
+}
+
+#logo img,
+#logo span {
+    /*    width: auto;*/
+    height: 40px;
 }
 
 
 #nav {
-    background-color: aliceblue;
+    background-color: rgba(240, 248, 255, 0.5);
     display: flex;
     flex-direction: row;
     justify-items: baseline;
     justify-content: space-evenly;
     flex-wrap: wrap;
+    margin: 10px 0px 10px 0px;
+
 
 }
 
 aside {
-    background-color: #d5d9d2;
+    background-color: rgba(230, 247, 217, 0.4);
+    /*    width: 100%;*/
     text-align: center;
     justify-items: center;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 1px;
 
 }
 
 footer {
-    background-color: #ffeded;
+    background-color: rgba(9, 11, 15, 0.5);
+    color: white;
+    text-align: center;
 }
 
 nav div {
@@ -68,34 +105,18 @@ nav div {
     width: 120px;
 }
 
-.cat1 {
-    background-color: brown;
-}
+.mini,
+.mini > img {
+    width: 200px;
+    height: 150px;
+    border-radius: 10px;
 
-.cat2 {
-    background-color: yellow;
-}
-
-.cat3 {
-    background-color: palevioletred;
-}
-
-.cat4 {
-    background-color: greenyellow;
 }
 
 .small {
-    width: 200px;
-    height: 150px;
-    border: 1px solid red;
-    border-radius: 5px;
-}
-
-.medium {
     width: 400px;
     height: 300px;
-    border: 1px solid green;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 #small-grid {
@@ -107,7 +128,7 @@ nav div {
     margin: 10px;
 }
 
-#small {
+#mini {
     display: flex;
     flex-direction: row;
     max-width: 850px;
@@ -116,62 +137,98 @@ nav div {
     flex-wrap: wrap;
     justify-content: center;
     justify-items: center;
-    border: 1px solid gold;
     align-items: baseline;
     column-gap: 10px;
     row-gap: 10px;
+    padding: 10px 0px 10px 0px;
 
 
 }
 
 .title {
-    border: 1px solid blue;
-    height: 50px;
+    /*    height: 50px;*/
     width: 100%;
-    background-color: darkgray
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
 }
-
-#logo img {
-    width: auto;
-    height: 70px;
-}
-
-/*
-button {
-    background-color: aqua;
-    border-radius: 10px;
-    border: 1px;
-    padding: 15px;
-}*/
 
 .show {
     display: grid !important;
-    grid-template-rows: 300px auto;
-    grid-template-columns: 420px auto;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+        "img cat"
+        "img name"
+        "img con"
+        "download con";
+    gap: 15px;
+    padding-top: 30px;
 }
 
-.menu {
+.show div {
+    /*    border: 1px solid black;*/
+    background: rgba(244, 234, 234, 0.25);
+    border-radius: 5px;
+    /*    width: 100%;*/
+}
 
+.show .btn {
+    font-size: 20px !important;
+}
+
+.img {
+    grid-area: img;
+}
+
+.nam {
+    grid-area: name;
+}
+
+.con {
+    grid-area: con;
+}
+
+.cat {
+    grid-area: cat;
+}
+
+.down {
+    grid-area: download;
+}
+
+
+.menu {
+    color: aliceblue;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     /*    width: 100%;*/
-    /*    border: 1px solid blue;*/
 
 }
 
 .flex {
-    background-color: #ffeded;
+    background-color: rgba(0, 128, 0, 0.5);
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin: 10px;
-    width: 100%;
+    /*    margin: 10px;*/
+    width: auto;
+    margin: 10px 0px 10px 0px;
+    font-weight: 400;
+    color: azure;
+}
+
+.flex a:hover {
+    color: #ffe3e3;
+    font-weight: 800;
+    transition-delay: 0.1s;
 }
 
 .flexb {
     justify-content: space-between;
+    width: 40px;
+    column-gap: 15px;
 }
 
 .grid {
@@ -188,8 +245,11 @@ button {
 }
 
 .formc {
-    width: 80px;
-    height: 40px;
+    width: 120px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.49);
+    font-size: 18px;
+    font-weight: bolder;
 }
 
 table {
@@ -198,9 +258,11 @@ table {
 
 tr,
 td {
-    border: 1px solid green;
+    background: rgba(235, 228, 228, 0.74);
+    border: 1.5px solid black;
     width: auto;
     min-width: inherit;
+    color: #10100d;
 }
 
 #hideMe {
@@ -208,11 +270,9 @@ td {
     text-align: start;
     justify-items: start;
     justify-content: center;
-    /*    border: 1px solid red;*/
-
-
 }
 
+/*
 .sub {
     border: 1px solid red;
     display: block;
@@ -222,6 +282,7 @@ td {
 .sub:active > div.hidden {
     display: block;
 }
+*/
 
 .error {
     color: orangered;
@@ -230,7 +291,7 @@ td {
 
 div > label {
     width: 170px;
-    color: forestgreen
+    color: forestgreen;
 }
 
 label > button {
@@ -239,4 +300,64 @@ label > button {
 
 .red {
     color: red !important;
+}
+
+table#files td.file:hover > div.hidden {
+    display: block !important;
+    background-color: darkgray;
+    color: chartreuse;
+    position: absolute;
+    z-index: 1;
+}
+
+div#small:hover > div.hidden {
+    display: block !important;
+    border-radius: 10px;
+    font-size: 10px;
+    z-index: 1;
+    position: absolute;
+    padding-right: 20px;
+    /*    top: 300px;*/
+    background: rgba(255, 255, 255, 0.63);
+}
+
+
+div.mini:hover > div.hidden {
+    display: block !important;
+    background-color: darkgray;
+    color: chartreuse;
+    position: relative;
+    top: -100px;
+    border-radius: 10px;
+    font-size: 10px;
+    z-index: 1;
+}
+
+.hidden {
+    display: none;
+}
+
+td:hover,
+#sub:hover {
+    background-color: #d0f4b6;
+    /*    margin: 5px;*/
+    border-radius: 5px;
+}
+
+#sub > a {
+    padding: 15px;
+    font-weight: 900;
+    /*    font-size: 20px;*/
+}
+
+aside.edit {
+    width: 100%;
+}
+
+.edit {
+    display: flex;
+    flex-direction: row;
+    /*    justify-items: center;*/
+    justify-content: space-evenly;
+    width: 100%;
 }

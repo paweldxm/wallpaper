@@ -2,11 +2,10 @@
     @session_start();
 
     if(!isset($_SESSION['status'])) {
-        header('Location: index.php');
+        header('Location: ./index.php');
         exit();
     }
     else {
-        
         $id = $_GET['id'];
         $bcon=mysqli_connect("localhost","root","","wallpaper"); 
         $query = 'DELETE FROM category WHERE ID=' . $id;

@@ -21,6 +21,12 @@ function get_connection()
 
     return $pdo;
 }
+
+function fast_conn(){
+    $bcon = mysqli_connect("localhost","root","","wallpaper");
+    return $bcon;
+    
+}
 function get_cat()
 {
     $pdo = get_connection();
@@ -38,13 +44,43 @@ function get_users()
     return $stmt->fetchAll();
 }
 
-function get_wp()
+function get_wall()
 {
+    
     $pdo = get_connection();
-    $query = 'select id,login,date from users GROUP by date DESC' ;
+    $query = 'select file from files GROUP by date DESC' ;
     $stmt = $pdo->query($query);
     $stmt->execute();
     return $stmt->fetchAll();
 }
+function show_img($id)
+{
+    $pdo = get_connection();
+    $query = 'SELECT * FROM files WHERE files.id = :idVal';
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam('idVal', $id);
+    $stmt->execute();
 
-$bcon=mysqli_connect("localhost","root","","wallpaper");
+    return $stmt->fetch();
+}
+function show_cat($cat)
+{
+    $pdo = get_connection();
+    $find = 'SELECT file,res,id FROM files WHERE category= :catVal';
+    $stmt = $pdo->prepare($find);
+    $stmt->bindParam('catVal', $cat);
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+function remove_img($id)
+{
+    $pdo = get_connection();
+    $query = 'DELETE FROM files WHERE files.id= :idVal';
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam('idVal', $id);
+    $stmt->execute();
+}
+function sizeMB($filename) {
+    $file = filesize($filename);
+  return round( $file / 1024 / 1024, 2) . 'MB';
+}

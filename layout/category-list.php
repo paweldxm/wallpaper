@@ -1,15 +1,17 @@
 <?php
-    require './lib/functions.php';
-
     $cat = get_cat(); 
-?>
+    ?>
 <div id="nav">
     <?php
             foreach ($cat as $cate) {
         ?>
-    <div style="background:<?php echo rand_col();?>;">
-        <?php echo $cate['name'];
-         ?>
+
+    <div id="sub">
+
+        <a href="./index-cat.php?cat=<?php 
+                echo $cate['name'] ?>">
+            <?php echo $cate['name'];?>
+        </a>
     </div>
     <?php
     }

@@ -2,8 +2,7 @@
 @session_start();
 ?>
 <div class="menu">
-    <div class="error" style="margin-right:10px;   justify-content: center;">
-        Jesteś zalogowany:<br>
+    <div style="margin-right:10px;   justify-content: center;">
         <?php
         echo '<b>';
 
@@ -13,5 +12,5 @@
 
     ?>
     </div>
-    <a href="./kill.php" class="btn btn-success">Wyloguj się</a>
+    <a href="./kill.php" class="btn">Wyloguj się</a>
 </div>
