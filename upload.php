@@ -48,7 +48,6 @@
     $width = $original_dimensions[0];
     $height = $original_dimensions[1];
     $res = $width . 'x' . $height;
-//    $res2= getimagesizefromstring($original);
     imagecopyresampled($small, $fil, 0, 0, 0, 0, 400, 300, $width, $height);
     imagecopyresampled($mini, $fil, 0, 0, 0, 0, 200, 150, $width, $height);
     imagejpeg($small, './uploads/small/'.$file);

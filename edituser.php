@@ -122,7 +122,7 @@
     <br><br>
     <span>Lista obecnych użytkowników:</span>
     <?php
-$bcon=mysqli_connect("localhost","root","","wallpaper");
+        $bcon = fast_conn();
 if (mysqli_connect_errno())
 {
     echo "Nie można się połączyć z bazą";

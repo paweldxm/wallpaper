@@ -13,7 +13,7 @@
     </div>
     <div id="mini">
         <?php
-        $bcon=mysqli_connect("localhost","root","","wallpaper"); 
+        $bcon = fast_conn();
         $find = 'SELECT file,res,id FROM files ORDER BY files.date DESC LIMIT 8' ;
         $result = mysqli_query($bcon,$find);
         
@@ -21,10 +21,10 @@
             $file = './uploads/' .$row['file'] ;
             $size = sizeMB($file);
             echo '<div class="mini">';
-                echo '<a href="./show.php?id='.$row['id'].'">';
-                echo '<img src="./uploads/mini/' . $row['file'] .'">';
-                echo '<div class="hidden">';
-                echo '<ul>Informacje o pliku,<li>rozdzielczość: ' . $row['res'] .'</li><li>wielkość pliku: '.$size.'</li></ul></div></a></div>';
+            echo '<a href="./show.php?id='.$row['id'].'">';
+            echo '<img src="./uploads/mini/' . $row['file'] .'"></a>';
+            echo '<div class="hidden">';
+            echo '<ul>Informacje o pliku,<li>rozdzielczość: ' . $row['res'] .'</li><li>wielkość pliku: '.$size.'</li></ul></div></div>';
 
         }
   
@@ -37,16 +37,17 @@
     <div id="mini">
 
         <?php
-        $find2 = 'SELECT file,res FROM files ORDER BY files.width DESC LIMIT 8' ;
+        $find2 = 'SELECT file,res,id FROM files ORDER BY files.width DESC LIMIT 8' ;
         $result2 = mysqli_query($bcon,$find2);
         
         while($row = mysqli_fetch_array($result2)) {
             $file = './uploads/' .$row['file'] ;
             $size = sizeMB($file);
             echo '<div class="mini">';
-                echo '<img src="./uploads/mini/' . $row['file'] .'">';
-                echo '<div class="hidden">';
-                echo '<ul>Informacje o pliku,<li>rozdzielczość: ' . $row['res'] .'</li><li>wielkość pliku: '.$size.'</li></ul></div></div>';
+            echo '<a href="./show.php?id='.$row['id'].'">';
+            echo '<img src="./uploads/mini/' . $row['file'] .'"></a>';
+            echo '<div class="hidden">';
+            echo '<ul>Informacje o pliku,<li>rozdzielczość: ' . $row['res'] .'</li><li>wielkość pliku: '.$size.'</li></ul></div></div>';
 
         }
         

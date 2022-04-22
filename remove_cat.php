@@ -7,7 +7,7 @@
     }
     else {
         $id = $_GET['id'];
-        $bcon=mysqli_connect("localhost","root","","wallpaper"); 
+        $bcon = fast_conn();
         $query = 'DELETE FROM category WHERE ID=' . $id;
         mysqli_query($bcon,$query);
         mysqli_close($bcon);

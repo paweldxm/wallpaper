@@ -1,4 +1,5 @@
 <?php
+    @session_start();
     $cat = get_cat(); 
     ?>
 <div id="nav">

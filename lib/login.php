@@ -28,7 +28,6 @@
                     $_SESSION['status']= true;
                     $_SESSION['login'] = $row['login'];
                     unset($_SESSION['error']);
-//                    @unset($_SESSION['status']);
                     header ('Location: ../index.php');    
                 }   
                 else
@@ -43,9 +42,10 @@
             {
  
                 header ('Location: ../index.php');
+                exit();
             }
-            echo $_POST['login'];
-
+        header ('Location: ../index.php');
+        exit();
 //    }
 
 ?>

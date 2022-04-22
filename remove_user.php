@@ -6,7 +6,7 @@
         exit();
     }
     else {
-        $bcon=mysqli_connect("localhost","root","","wallpaper"); 
+        $bcon = fast_conn();
 
         $id = $_GET['id'];
         $query = 'DELETE FROM users WHERE ID=' . $id;

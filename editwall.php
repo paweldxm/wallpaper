@@ -84,7 +84,7 @@
     <br><br>
     <span>Lista tapet w bazie:</span>
     <?php
-    $bcon=mysqli_connect("localhost","root","","wallpaper");
+        $bcon = fast_conn();
     if (mysqli_connect_errno())
     {
         echo "Nie można się połączyć z bazą";

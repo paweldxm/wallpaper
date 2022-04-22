@@ -28,9 +28,9 @@
             $x = $row['id'];
             echo '<div class="mini">';
             echo '<a href="./show.php?id='.$x.'">';
-            echo '<img src="./uploads/mini/' . $row['file'] .'">';
+            echo '<img src="./uploads/mini/' . $row['file'] .'"></a>';
             echo '<div class="hidden">';
-            echo '<ul>Informacje o pliku,<li>rozdzielczość: ' . $row['res'] .'</li><li>wielkość pliku: '.$size.'</li></ul></div></a></div>';
+            echo '<ul>Informacje o pliku,<li>rozdzielczość: ' . $row['res'] .'</li><li>wielkość pliku: '.$size.'</li></ul></div></div>';
 
         }
   
