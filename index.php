@@ -1,5 +1,9 @@
 <?php
     @session_start();
+    if(isset($_SESSION['acat']))
+    {
+        $_SESSION['acat']=null;
+    }
     require './layout/header.php';
     if(isset($_SESSION['status']))
     {

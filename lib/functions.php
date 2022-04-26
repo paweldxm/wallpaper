@@ -35,6 +35,23 @@ function get_cat()
     $stmt->execute();
     return $stmt->fetchAll();
 }
+function counts($cat=null){
+    $pdo = get_connection();
+    $query = 'SELECT COUNT(files.id) FROM files WHERE category="' .$cat. '"' ;
+    $x = $pdo->query($query);
+    return ($x);
+}
+
+function ct(){
+    $pdo = get_connection();
+    $query = 'SELECT COUNT(files.id) FROM files' ;
+    $x = $pdo->query($query);
+    $x->execute();
+    $x->fetch();
+    var_dump($x);
+    return ($x);
+}
+
 function get_users()
 {
     $pdo = get_connection();

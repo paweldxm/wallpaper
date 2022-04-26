@@ -5,6 +5,10 @@
         header('Location: ./index.php');
         exit();
     }
+    if(isset($_SESSION['acat']))
+    {
+        $_SESSION['acat']=null;
+    }
     require './layout/header.php';
     require './layout/menu.php';
 ?>

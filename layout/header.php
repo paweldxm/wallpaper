@@ -39,17 +39,17 @@
                 <a href="./index.php">
                     <?php
                 require_once './lib/functions.php';
-                echo '<span style="color:'. rand_col() .';">W</span>'; 
+                echo '<div id="l1"><span style="color:'. rand_col() .';">W</span>'; 
                 echo '<span style="color:'. rand_col() .';">A</span>'; 
                 echo '<span style="color:'. rand_col() .';">L</span>'; 
-                echo '<span style="color:'. rand_col() .';">L</span>'; 
-                echo '<img src="images/logo.png" alt="logo" />';
-                echo '<span style="color:'. rand_col() .';">P</span>'; 
+                echo '<span style="color:'. rand_col() .';">L</span></div>'; 
+                echo '<div id="l2"><img src="images/logo.png" alt="logo" /></div>';
+                echo '<div id="l3"><span style="color:'. rand_col() .';">P</span>'; 
                 echo '<span style="color:'. rand_col() .';">A</span>'; 
                 echo '<span style="color:'. rand_col() .';">P</span>'; 
                 echo '<span style="color:'. rand_col() .';">E</span>'; 
                 echo '<span style="color:'. rand_col() .';">R</span>'; 
-                echo '<span style="color:'. rand_col() .';">S</span>'; ?>
+                echo '<span style="color:'. rand_col() .';">S</span></div>'; ?>
                 </a>
             </div>
             <div class="menu">

@@ -52,10 +52,11 @@
     imagecopyresampled($mini, $fil, 0, 0, 0, 0, 200, 150, $width, $height);
     imagejpeg($small, './uploads/small/'.$file);
     imagejpeg($mini, './uploads/mini/'.$file);
+    $pixels = $width*$height;
     echo 'Poczekaj chwilę, zapisuje miniaturki...';    
     $pdo = get_connection();
 
-    $query = "INSERT INTO files VALUES(null,'$name','$content',CURRENT_TIMESTAMP, '$category','$file','$res','$width')" ;
+    $query = "INSERT INTO files VALUES(null,'$name','$content',CURRENT_TIMESTAMP, '$category','$file','$res','$pixels')" ;
     echo '<br>';
     $pdo->query($query);
 

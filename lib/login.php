@@ -1,9 +1,11 @@
 <?php
     @session_start();
     require 'functions.php';
-    echo $_POST['login'];
-//    if (!isset($_SESSION)) {
-
+    
+ if (!isset($_POST)) {
+        header ('Location: ../index.php');
+        exit();
+        }
         
             
             $login = $_POST['login'];
@@ -22,6 +24,7 @@
                 {
                     $_SESSION['error'] = $login ;
                     header ('Location: ../nouser.php');
+                    die;
                 }
                 if(password_verify(($passwd),$row['passwd']))
                 {
@@ -34,6 +37,8 @@
                 {
                     $_SESSION['error'] = $login ;
                     header ('Location: ../nouser.php');
+                    die;
+
                 }
                 
                     
@@ -41,11 +46,12 @@
             else
             {
  
-                header ('Location: ../index.php');
+                header ('Location: ../nouser.php');
                 exit();
             }
         header ('Location: ../index.php');
         exit();
-//    }
+
+ 
 
 ?>
