@@ -3,9 +3,8 @@
 
     if(!isset($_SESSION['status'])) {
         header('Location: ./index.php');
-        exit();
-    }
-    else {
+        die;
+        }
         require './lib/functions.php';
         $id = $_GET['id'];
         $img = show_img($id);
@@ -22,5 +21,4 @@
         unlink($f3);
         header('Location: ../wallpap.php');
         die;
-    }
 ?>
