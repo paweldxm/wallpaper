@@ -40,7 +40,7 @@
         if ($passwd!=$passwd2) 
         {
             $status = false;
-            $_SESSION['e_passwd2']='Podane hasła nie są identyczne';
+            $_SESSION['e_passwd2']='Podane hasła nie są identyczne!';
         }
 
         $passwd_hash = password_hash($passwd,PASSWORD_DEFAULT);
@@ -52,7 +52,7 @@
             if($row1==true)
                     {
                         $status = false;
-                        $_SESSION['e_login']='User istnieje!';
+                        $_SESSION['e_login']='User '. $login .' już istnieje w bazie!';
                     }
 
         }

@@ -13,12 +13,11 @@
         $cat=$_GET['cat'];
         $_SESSION['acat']=$cat;
         $result = show_cat($cat);
+        if ($result[0] == 0) {
+            header ('Location: ./index.php');
+            die;
             }
-    // else {
-    //     $_SESSION['acat']=null;
-    //     header ('Location: ./index.php');
-    //     die;
-    // }
+        }
     if (isset($_SESSION['jump']) && ($_SESSION['jump']>0)) {
         $act=$_SESSION['jump'];
     }

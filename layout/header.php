@@ -13,6 +13,8 @@
     <meta name="copyright" content="DXM" />
     <meta name="robots" content="follow" />
     <meta http-equiv="expires" content="43200" />
+    <meta name="description" content="The best webservice with wallpapers. Wall pappers. HD WIDE">
+
 
     <title>DreamScreen</title>
     <link rel="stylesheet" href="css/style.css">
