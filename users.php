@@ -9,6 +9,9 @@
     {
         $_SESSION['acat']=null;
     }
+    if(!isset($_SESSION['usite'])){
+        $_SESSION['usite'] = 0;
+    }
     require './layout/header.php'; 
     require './layout/menu.php'; 
     if(isset($_POST['login'])){
@@ -107,43 +110,6 @@
                 }
                 ?>
     <br><br>
-    <span>Lista obecnych użytkowników:</span>
     <?php
-        $bcon = fast_conn();
-if (mysqli_connect_errno())
-{
-    echo "Brak połączenia z bazą MySQL";
-}
-else {
-echo '<table><tr><td>id</td><td>data</td><td>login</td><td></td><td></td>';
-
-$result = mysqli_query($bcon,"SELECT * FROM users");
-
-while($row = mysqli_fetch_array($result))
-
-{
-    $login = $row['login'];
-    echo "<tr><td>" . $row['id'] . "</td><td>" . $row['date'] . "</td><td>" . $row['login'] . "</td><td> ";
-    echo '<a href="edituser.php?id=' . $row['id'] . '        ">edytuj</a></td><td>' ;
-        
-    if ($_SESSION['login']!=$row['login'])
-    {
-        $who = 'usuń';
-    }
-    else
-    {
-        $who = 'usuń mnie';
-    }
+    require './lib/usr.php';
     ?>
-
-    <a onclick="return confirm('Jesteś pewny, że chcesz usunąć dane?');" href="./remove_user.php/?id= <?php echo $row['id'] . '">' . $who . '</a></td></tr>';    
-    
-    }
-    echo '</tr></table>';
-    mysqli_close($bcon);
-}
-echo'<br>';
-echo '<br><br>';
-echo '</aside>';
-require './layout/footer.php';
-?>
