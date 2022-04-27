@@ -9,8 +9,13 @@
     {
         $_SESSION['acat']=null;
     }
+    if(!isset($_SESSION['csite'])){
+        $_SESSION['csite'] = 0;
+    }
+    require './lib/functions.php';
     require './layout/header.php';
     require './layout/menu.php'; 
+
         if(isset($_POST['name'])){
             $status = true;
             $name = $_POST['name'];
@@ -60,28 +65,5 @@
         </form>
     </div>
     <br><br>
-    <span>Lista kategori w bazie:</span>
     <?php
-        $bcon = fast_conn();
-    if (mysqli_connect_errno())
-    {
-        echo "Nie można się połączyć z bazą";
-    }
-    else {
-        echo '<table><tr><td>id</td><td>data dodania</td><td>nazwa</td><td></td><td></td>';
-
-        $result = mysqli_query($bcon,"SELECT * FROM category");
-        while($row = mysqli_fetch_array($result))
-        {
-            echo "<tr><td>" . $row['id'] . "</td><td>" . $row['date'] . "</td><td>" . $row['name'] . "</td><td> ";
-            echo '<a href="./editcat.php?id=' . $row['id'] . '        ">edytuj</a></td><td>' ;
-            ?>
-    <a onclick="return confirm('Jesteś pewny, że chcesz usunąć dane?');" href="./remove_cat.php/?id=<?php echo $row['id'] . '">usuń</a></td></tr>';    
-
-            }
-            echo '</tr></table>';
-            mysqli_close($bcon);
-        }
-echo'<br></aside>';
-require './layout/footer.php';
-       ?>
+    require './lib/cat.php';

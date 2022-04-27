@@ -20,7 +20,7 @@
         }
     else
     {
-       echo 'Błąd przy przesyłaniu danych!';
+       echo 'Błąd podczas przesyłaniu danych!';
     }
 
 
@@ -34,10 +34,11 @@
         }
 
     if (isset($_POST['content']) && strlen($_POST['content'])>0) {
-    $content = $_POST['content'];
-    } else {
-    $content = 'brak opisu';
-    }
+        $content = $_POST['content'];
+        }
+        else {
+        $content = 'brak opisu';
+        }
     $category = $_POST['category'];
     $file = $_FILES['image']['name'];
     $original = './uploads/'.$file;
