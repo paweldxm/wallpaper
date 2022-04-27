@@ -1,6 +1,6 @@
 <?php
     @session_start();
     $_SESSION['jump']++;
-    header ('Location: ./index-cat.php');
+    header ('Location: ../index-cat.php');
     die;
     ?>

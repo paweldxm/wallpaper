@@ -56,7 +56,6 @@
     if ($y<=20) {
         for ($j=1; $j<=$y; $j++)
         {
-            // echo $j;
             $z=($j)-1;
             $file = './uploads/' .$row[$z]['file'] ;
             $size = sizeMB($file);
@@ -96,31 +95,31 @@
             if (($act==0 && ($act<$howMuch)))
             {
                 echo '['. ($n + 1) .' - '. ($n - 1) + $j .']   |  ';
-                echo '<a href="./nx.php">następna</a>';
+                echo '<a href="./lib/nx.php">następna</a>';
                 echo '</div></aside>';
                 require './layout/footer.php';
                 exit();
 
             }
             if (($act==1 && ($act==$howMuch)) || ($act>1 && ($act=$howMuch))) {
-                echo '<a href="./px.php">poprzednia</a>';
+                echo '<a href="./lib/px.php">poprzednia</a>';
                 echo '  |  ['. ($n + 1) .' - '. ($n - 1) + $j .'] ';
                 echo '</div></aside>';
                 require './layout/footer.php';
                 exit();
             }
             if ($act==1 && ($act<$howMuch)) {
-                echo '<a href="./px.php">poprzednia</a>';
+                echo '<a href="./lib/px.php">poprzednia</a>';
                 echo '  |  ['. ($n + 1) .' - '. ($n - 1) + $j .']  |  ';
-                echo '<a href="./nx.php">następna</a>';
+                echo '<a href="./lib/nx.php">następna</a>';
                 echo '</div></aside>';
                 require './layout/footer.php';
                 exit();
             }
             if ($act>1 && ($act<=$howMuch)) {
-                echo '<a href="./px.php">poprzednia</a>';
+                echo '<a href="./lib/px.php">poprzednia</a>';
                 echo '['. ($n + 1) .' - '. ($n - 1) + $j .']';
-                echo '<a href="./nx.php">następna</a>';
+                echo '<a href="./lib/nx.php">następna</a>';
                 echo '</div></aside>';
                 require './layout/footer.php';
                 exit();
